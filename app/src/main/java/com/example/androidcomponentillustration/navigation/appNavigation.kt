@@ -1,4 +1,4 @@
-package com.example.statussaver.navigation
+package com.example.androidcomponentillustration.navigation
 
 
 import MainScreen
@@ -9,10 +9,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.statussaver.ui.screen.savedFiles.SavedFileScreen
-import com.example.statussaver.ui.screen.whatsapp.Whatsapp
-import com.example.statussaver.ui.screen.whatsapp_business.WABusiness
-import com.example.statussaver.viewmodel.MainViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -26,17 +22,13 @@ fun MainScreenNavigation(
 ) {
     // val mainViewModel = hiltViewModel<MainViewModel>()
 
-    NavHost(navController, startDestination = MainScreen.WABusiness.route) {
-        //local
-        composable(MainScreen.WABusiness.route) {
-            WABusiness(mainViewModel)
+    NavHost(navController, startDestination = MainScreen.ComponentListScreen.route) {
+        // component list
+        composable(MainScreen.ComponentListScreen.route) {
         }
-        //online
-        composable(MainScreen.Whatsapp.route) {
-            Whatsapp(mainViewModel = mainViewModel)
-        }
-        composable(MainScreen.SavedFile.route) {
-            SavedFileScreen(mainViewModel)
+        // implementation
+        composable(MainScreen.ComponentImplScreen.route) {
+
         }
     }
 

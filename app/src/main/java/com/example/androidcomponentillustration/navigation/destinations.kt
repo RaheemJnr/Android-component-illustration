@@ -1,16 +1,10 @@
-import com.example.statussaver.R
-
-
 sealed class MainScreen(
     val route: String,
     val title: String,
-    val icon: Int,
-    val index: Int
 ) {
-    object WABusiness :
-        MainScreen(route = "WhatsApp Business", title = "WaBusiness", icon = R.drawable.all_whatsapp_icon, index = 0)
+    object ComponentListScreen : MainScreen(route = "Component List", title = "Component List")
 
-    object Whatsapp : MainScreen(route = "WhatsApp", title = "Whatsapp", icon = R.drawable.all_whatsapp_icon, index = 1)
+    object ComponentImplScreen :
+        MainScreen(route = "Component Impl", title = "Component Implementation")
 
-    object SavedFile : MainScreen(route = "Saved Files", title = "SavedFiles", icon = R.drawable.saved_file, index = 2)
 }
