@@ -9,6 +9,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.androidcomponentillustration.ui.screen.impl.ComponentImplScreen
 import com.example.androidcomponentillustration.ui.screen.list.ComponentListScreen
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -31,7 +32,7 @@ fun MainScreenNavigation(
 
         // implementation
         composable(MainScreen.ComponentImpl.route) {
-
+            ComponentImplScreen()
         }
     }
 
