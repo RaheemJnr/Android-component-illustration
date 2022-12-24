@@ -9,6 +9,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.androidcomponentillustration.ui.screen.list.ComponentListScreen
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -22,12 +23,14 @@ fun MainScreenNavigation(
 ) {
     // val mainViewModel = hiltViewModel<MainViewModel>()
 
-    NavHost(navController, startDestination = MainScreen.ComponentListScreen.route) {
+    NavHost(navController, startDestination = MainScreen.ComponentList.route) {
         // component list
-        composable(MainScreen.ComponentListScreen.route) {
+        composable(MainScreen.ComponentList.route) {
+            ComponentListScreen()
         }
+
         // implementation
-        composable(MainScreen.ComponentImplScreen.route) {
+        composable(MainScreen.ComponentImpl.route) {
 
         }
     }

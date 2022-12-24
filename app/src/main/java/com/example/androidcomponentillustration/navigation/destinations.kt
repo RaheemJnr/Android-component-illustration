@@ -2,9 +2,9 @@ sealed class MainScreen(
     val route: String,
     val title: String,
 ) {
-    object ComponentListScreen : MainScreen(route = "Component List", title = "Component List")
+    object ComponentList : MainScreen(route = "Component List", title = "Component List")
 
-    object ComponentImplScreen :
+    object ComponentImpl :
         MainScreen(route = "Component Impl", title = "Component Implementation")
 
 }
