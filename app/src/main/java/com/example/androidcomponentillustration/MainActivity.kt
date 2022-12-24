@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
 import com.example.androidcomponentillustration.navigation.MainScreenNavigation
 import com.example.androidcomponentillustration.ui.theme.AndroidComponentIllustrationTheme
@@ -24,6 +25,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidComponentIllustrationTheme {
+                // Enable edge-to-edge experience and ProvideWindowInsets to the composable
+                WindowCompat.setDecorFitsSystemWindows(window, false)
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -43,7 +46,6 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen() {
-    /*** main viewModel */
     val navController = rememberNavController()
     Scaffold(
     ) {
