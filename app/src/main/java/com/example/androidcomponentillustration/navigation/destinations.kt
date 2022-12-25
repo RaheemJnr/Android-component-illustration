@@ -1,3 +1,5 @@
+package com.example.androidcomponentillustration.navigation
+
 sealed class MainScreen(
     val route: String,
     val title: String,

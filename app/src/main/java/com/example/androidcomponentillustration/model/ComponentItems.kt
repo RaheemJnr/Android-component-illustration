@@ -10,10 +10,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 @Stable
 @Immutable
-data class ListItems(val name: String = "", val icon: ImageVector, val routeName: String = "")
+data class ComponentItems(val name: String = "", val icon: ImageVector, val routeName: String = "")
 
 
 val listItems = listOf(
-    ListItems("Text View", icon = Icons.Default.List, routeName = "TextView"),
-    ListItems("Animations", icon = Icons.Default.MoreVert, routeName = "Animation")
+    ComponentItems("Text View", icon = Icons.Default.List, routeName = "TextView"),
+    ComponentItems("Animations", icon = Icons.Default.MoreVert, routeName = "Animation")
 )

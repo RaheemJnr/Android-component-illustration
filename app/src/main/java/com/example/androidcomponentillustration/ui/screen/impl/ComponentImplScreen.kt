@@ -1,15 +1,10 @@
 package com.example.androidcomponentillustration.ui.screen.impl
 
+import com.example.androidcomponentillustration.navigation.MainScreen
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.runtime.Composable
@@ -50,9 +45,21 @@ fun ComponentImplScreen(
                     }
                 }
             )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            when (screenType) {
+                 -> {
+                    Text(text = "NA we dy here")
+                }
+                MainScreen.ComponentImpl.route -> {
+                    Text(text = "Na we dy here too")
+                }
+                else -> {
+                    Text(text = "Well not here")
+                }
+
+            }
         }
-
-
     }
 
 }

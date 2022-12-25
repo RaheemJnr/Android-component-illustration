@@ -72,7 +72,7 @@ fun ComponentListScreen(
                         name = it.name,
                         imageIcon = it.icon
                     ) {
-                        navController.navigate("componentImpl/${it.routeName}")
+                        navController.navigate("componentImpl/${it}")
 
                     }
 
