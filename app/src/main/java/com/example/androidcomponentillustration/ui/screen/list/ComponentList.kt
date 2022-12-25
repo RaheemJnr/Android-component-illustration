@@ -70,7 +70,8 @@ fun ComponentListScreen(
                 ) {
                     ComponentItem(
                         name = it.name,
-                        imageIcon = it.icon
+                        imageIcon = it.icon,
+                        forwardIcon = com.example.androidcomponentillustration.R.drawable.forward_arrow
                     ) {
                         navController.navigate("componentImpl/${it.routeName}")
 

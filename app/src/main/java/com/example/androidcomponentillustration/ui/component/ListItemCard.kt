@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 fun ComponentItem(
     name: String,
     imageIcon: Int,
+    forwardIcon: Int,
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier,
     itemSeparation: Dp = 16.dp,
@@ -33,9 +34,11 @@ fun ComponentItem(
                 .clickable { onClick() }
                 .padding(vertical = itemSeparation)
         ) {
-            InterestsIcon(imageIcon, iconModifier.size(38.dp))
+            ComponentIcon(imageIcon, iconModifier.size(38.dp))
             Spacer(modifier = Modifier.width(16.dp))
             InterestContent(name)
+            Spacer(modifier = Modifier.width(200.dp))
+            ForwardIcon(forwardIcon = forwardIcon,iconModifier.size(38.dp))
         }
 //        NiaIconToggleButton(
 //            checked = following,
@@ -72,12 +75,23 @@ private fun InterestContent(name: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun InterestsIcon(iconImage: Int, modifier: Modifier = Modifier) {
+private fun ComponentIcon(iconImage: Int, modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier
             .background(MaterialTheme.colors.surface)
             .padding(4.dp),
         painter = painterResource(id = iconImage),
+        contentDescription = null, // decorative image
+    )
+}
+
+@Composable
+private fun ForwardIcon(forwardIcon: Int, modifier: Modifier = Modifier) {
+    Icon(
+        modifier = modifier
+            .background(MaterialTheme.colors.surface)
+            .padding(4.dp),
+        painter = painterResource(id = forwardIcon),
         contentDescription = null, // decorative image
     )
 }
