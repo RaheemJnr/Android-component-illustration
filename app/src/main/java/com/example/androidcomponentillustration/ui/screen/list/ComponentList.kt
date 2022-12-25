@@ -5,17 +5,24 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.androidcomponentillustration.model.listItems
+import com.example.androidcomponentillustration.ui.component.ComponentItem
 import com.example.androidcomponentillustration.ui.component.StatusPageHeading
 
 @Composable
-fun ComponentListScreen() {
+fun ComponentListScreen(
+    navController: NavController
+) {
     Scaffold(
         Modifier
             .fillMaxSize()
@@ -61,7 +68,13 @@ fun ComponentListScreen() {
 
                     }
                 ) {
-                    Text(text = it.name)
+                    ComponentItem(
+                        name = it.name,
+                        imageIcon = it.icon
+                    ) {
+                        navController.navigate("componentImpl/${it.routeName}")
+
+                    }
 
                 }
             }
