@@ -48,7 +48,7 @@ fun ComponentImplScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             when (screenType) {
-                Destination.TextView.route -> {
+                Destination.TextField.route -> {
                     Text(text = "NA we dy here")
                 }
                 Destination.Animation.route -> {
