@@ -1,6 +1,5 @@
 package com.example.androidcomponentillustration.ui.screen.impl
 
-import com.example.androidcomponentillustration.navigation.MainScreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -10,6 +9,7 @@ import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.androidcomponentillustration.navigation.Destination
 import com.example.androidcomponentillustration.ui.component.StatusPageHeading
 
 @Composable
@@ -48,10 +48,10 @@ fun ComponentImplScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             when (screenType) {
-                 -> {
+                Destination.TextView.route -> {
                     Text(text = "NA we dy here")
                 }
-                MainScreen.ComponentImpl.route -> {
+                Destination.Animation.route -> {
                     Text(text = "Na we dy here too")
                 }
                 else -> {

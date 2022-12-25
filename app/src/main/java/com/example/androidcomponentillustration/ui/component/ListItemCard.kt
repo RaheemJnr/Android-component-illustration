@@ -9,14 +9,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun ComponentItem(
     name: String,
-    imageIcon: ImageVector,
+    imageIcon: Int,
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier,
     itemSeparation: Dp = 16.dp,
@@ -72,12 +72,12 @@ private fun InterestContent(name: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun InterestsIcon(iconImage: ImageVector, modifier: Modifier = Modifier) {
+private fun InterestsIcon(iconImage: Int, modifier: Modifier = Modifier) {
     Icon(
         modifier = modifier
             .background(MaterialTheme.colors.surface)
             .padding(4.dp),
-        imageVector = iconImage,
+        painter = painterResource(id = iconImage),
         contentDescription = null, // decorative image
     )
 }

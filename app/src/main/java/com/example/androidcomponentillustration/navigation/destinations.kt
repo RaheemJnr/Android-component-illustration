@@ -10,3 +10,13 @@ sealed class MainScreen(
         MainScreen(route = "Component Impl", title = "Component Implementation")
 
 }
+
+
+sealed class Destination(
+    val route: String
+) {
+    object TextView : Destination(route = "TextView")
+    object Animation : Destination(route = "Animation")
+ //   object TextView : Destination(route = "TextView")
+
+}
