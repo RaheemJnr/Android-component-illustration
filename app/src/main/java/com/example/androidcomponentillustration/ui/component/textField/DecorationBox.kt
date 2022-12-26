@@ -2,6 +2,7 @@ package com.example.androidcomponentillustration.ui.component.textField
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -38,14 +39,15 @@ fun TextFields() {
             ) {
                 BasicTextField(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .wrapContentSize()
                         .padding(horizontal = 12.dp)
-                        .border(width = 1.5.dp, color = Color.Black),
+                        .border(width = 1.5.dp, color = Color.Black, RoundedCornerShape(12.dp)),
                     value = input,
                     textStyle = MaterialTheme.typography.h4,
                     onValueChange = {
                         input = it
                     },
+                    maxLines = 1,
                     decorationBox = { innerTextField ->
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
@@ -54,14 +56,27 @@ fun TextFields() {
                             Text(text = "Hi enter your text")
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.Center,
-                                modifier = Modifier.fillMaxWidth()
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                modifier = Modifier
                             ) {
-                                Icon(Icons.Rounded.Person, contentDescription = "")
+                                Icon(
+                                    Icons.Rounded.Person,
+                                    contentDescription = "",
+                                    Modifier
+                                        .padding(8.dp)
+                                        .size(30.dp)
+
+                                )
 
                                 innerTextField()
 
-                                Icon(Icons.Rounded.Check, contentDescription = "")
+                                Icon(
+                                    Icons.Rounded.Check,
+                                    contentDescription = "",
+                                    Modifier
+                                        .padding(8.dp)
+                                        .size(30.dp)
+                                )
 
                             }
                         }
