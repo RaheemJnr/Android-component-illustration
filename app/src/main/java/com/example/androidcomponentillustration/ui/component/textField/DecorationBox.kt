@@ -4,6 +4,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -38,18 +39,28 @@ fun TextFields() {
                 BasicTextField(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .border(width = 1.5.dp, color = Color.Black)
-                        .padding(12.dp),
+                        .padding(horizontal = 12.dp)
+                        .border(width = 1.5.dp, color = Color.Black),
                     value = input,
+                    textStyle = MaterialTheme.typography.h4,
                     onValueChange = {
                         input = it
                     },
                     decorationBox = { innerTextField ->
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+
+                            ) {
                             Text(text = "Hi enter your text")
-                            Row(verticalAlignment = Alignment.CenterVertically) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
                                 Icon(Icons.Rounded.Person, contentDescription = "")
+
                                 innerTextField()
+
                                 Icon(Icons.Rounded.Check, contentDescription = "")
 
                             }
