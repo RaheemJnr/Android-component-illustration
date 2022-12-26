@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.androidcomponentillustration.navigation.Destination
 import com.example.androidcomponentillustration.ui.component.StatusPageHeading
+import com.example.androidcomponentillustration.ui.component.textField.TextFields
 
 @Composable
 fun ComponentImplScreen(
@@ -49,7 +50,7 @@ fun ComponentImplScreen(
 
             when (screenType) {
                 Destination.TextField.route -> {
-                    Text(text = "NA we dy here")
+                   TextFields()
                 }
                 Destination.Animation.route -> {
                     Text(text = "Na we dy here too")
