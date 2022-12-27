@@ -30,7 +30,7 @@ fun TextFields() {
                 .fillMaxSize()
                 .padding(contentPadding)
         ) {
-            var input by remember { mutableStateOf("") }
+            var input by remember { mutableStateOf("Hi there") }
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -53,7 +53,7 @@ fun TextFields() {
                             horizontalAlignment = Alignment.CenterHorizontally,
 
                             ) {
-                            Text(text = "Hi enter your text")
+                            Text(text = "Hi enter your text...")
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -84,8 +84,6 @@ fun TextFields() {
                     }
                 )
             }
-
-
         }
 
     }
