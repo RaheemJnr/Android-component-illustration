@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.androidcomponentillustration.navigation.Destination
 import com.example.androidcomponentillustration.ui.component.StatusPageHeading
+import com.example.androidcomponentillustration.ui.component.textField.TextFields
 
 @Composable
 fun ComponentImplScreen(
@@ -48,8 +49,8 @@ fun ComponentImplScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             when (screenType) {
-                Destination.TextView.route -> {
-                    Text(text = "NA we dy here")
+                Destination.TextField.route -> {
+                   TextFields()
                 }
                 Destination.Animation.route -> {
                     Text(text = "Na we dy here too")

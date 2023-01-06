@@ -2,12 +2,11 @@ package com.example.androidcomponentillustration.navigation
 
 sealed class MainScreen(
     val route: String,
-    val title: String,
 ) {
-    object ComponentList : MainScreen(route = "Component List", title = "Component List")
+    object ComponentList : MainScreen(route = "Component List")
 
     object ComponentImpl :
-        MainScreen(route = "Component Impl", title = "Component Implementation")
+        MainScreen(route = "Component Impl")
 
 }
 
@@ -15,7 +14,7 @@ sealed class MainScreen(
 sealed class Destination(
     val route: String
 ) {
-    object TextView : Destination(route = "TextView")
+    object TextField : Destination(route = "TextField")
     object Animation : Destination(route = "Animation")
  //   object TextView : Destination(route = "TextView")
 

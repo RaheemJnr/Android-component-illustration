@@ -11,6 +11,6 @@ data class ComponentItems(val name: String = "", val icon: Int, val routeName: S
 
 
 val listItems = listOf(
-    ComponentItems("Text View", icon = R.drawable.text_view, routeName = "TextView"),
+    ComponentItems("Text Field", icon = R.drawable.text_view, routeName = "TextField"),
     ComponentItems("Animations", icon = R.drawable.animation, routeName = "Animation")
 )
