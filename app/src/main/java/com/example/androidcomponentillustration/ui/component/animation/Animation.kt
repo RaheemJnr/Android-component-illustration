@@ -1,8 +1,6 @@
 package com.example.androidcomponentillustration.ui.component.animation
 
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
@@ -32,22 +30,22 @@ fun Animation() {
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
             ) {
-//                val infiniteTransition = rememberInfiniteTransition()
-//                val color by infiniteTransition.(
-//                    initialValue = 0f,
-//                    targetValue = 1f,
-//                    animationSpec = infiniteRepeatable(
-//                        animation = spring(),
-//                        repeatMode = RepeatMode.Reverse
-//                    )
-//                )
-                val value by animateFloatAsState(
+                val infiniteTransition = rememberInfiniteTransition()
+                val color by infiniteTransition.animateFloat(
+                    initialValue = 0f,
                     targetValue = 1f,
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioHighBouncy,
-                        stiffness = Spring.StiffnessMedium
+                    animationSpec = infiniteRepeatable(
+                        animation = tween(100),
+                        repeatMode = RepeatMode.Reverse
                     )
                 )
+//                val value by animateFloatAsState(
+//                    targetValue = 1f,
+//                    animationSpec = spring(
+//                        dampingRatio = Spring.DampingRatioHighBouncy,
+//                        stiffness = Spring.StiffnessMedium
+//                    )
+//                )
 
 
 //                animateColor(
@@ -66,7 +64,7 @@ fun Animation() {
                         contentDescription = "",
                         modifier = Modifier.size(150.dp)
                             .offset(
-                            y = value.dp
+                            y = color.dp
                         )
                     )
                 }
