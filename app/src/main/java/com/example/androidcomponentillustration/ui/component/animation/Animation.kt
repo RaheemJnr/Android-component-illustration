@@ -5,6 +5,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
@@ -12,7 +13,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -25,23 +28,35 @@ fun Animation() {
                 .fillMaxSize()
                 .padding(contentPadding)
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 8.dp)
+
+            Column(
+                Modifier.fillMaxWidth()
             ) {
-                val infiniteTransition = rememberInfiniteTransition()
-                // Vertically Bouncing animation using Multi State infinite transition
-                BouncingAnimation(infiniteTransition)
-                Spacer(modifier = Modifier.width(8.dp))
-                //horizontally Bounding
-                HorizontalBouncingIcon(infiniteTransition)
-                Spacer(modifier = Modifier.width(8.dp))
-                //pulsating icon
-                PulsatingHeartIcon(infiniteTransition)
+                Text(
+                    text = "Infinite Transition",
+                    textAlign = TextAlign.Center,
+                    fontSize = 22.sp,
+                    modifier = Modifier.padding(start = 100.dp)
+                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp)
+                ) {
+                    val infiniteTransition = rememberInfiniteTransition()
+                    // Vertically Bouncing animation using Multi State infinite transition
+                    BouncingAnimation(infiniteTransition)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    //horizontally Bounding heart icon
+                    HorizontalBouncingIcon(infiniteTransition)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    //pulsating icon
+                    PulsatingHeartIcon(infiniteTransition)
+                }
             }
+
 
         }
 
