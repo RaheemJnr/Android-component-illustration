@@ -1,5 +1,6 @@
 package com.example.androidcomponentillustration.ui.component.animation
 
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
@@ -10,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 
@@ -31,41 +33,32 @@ fun Animation() {
                 modifier = Modifier
             ) {
                 val infiniteTransition = rememberInfiniteTransition()
-                val color by infiniteTransition.animateFloat(
-                    initialValue = 0f,
-                    targetValue = 1f,
-                    animationSpec = infiniteRepeatable(
-                        animation = tween(100),
-                        repeatMode = RepeatMode.Reverse
-                    )
+                //
+                val startColor = Color.Green
+                val endColor = Color.Yellow
+
+                val animatedColor by infiniteTransition.animateColor(
+                    initialValue = startColor,
+                    targetValue = endColor,
+                    animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
                 )
-//                val value by animateFloatAsState(
-//                    targetValue = 1f,
-//                    animationSpec = spring(
-//                        dampingRatio = Spring.DampingRatioHighBouncy,
-//                        stiffness = Spring.StiffnessMedium
-//                    )
-//                )
 
-
-//                animateColor(
-//                    initialValue = Color.Red,
-//                    targetValue = Color.Green,
-//                    animationSpec = infiniteRepeatable(
-//                        animation = tween(1000, easing = LinearEasing),
-//                        repeatMode = RepeatMode.Reverse
-//                    )
-//                )
+                val position by infiniteTransition.animateFloat(
+                    initialValue = -80f,
+                    targetValue = 80f,
+                    animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
+                )
 
                 Box(Modifier.fillMaxSize()) {
-
                     Icon(
                         Icons.Default.Favorite,
+                        tint = animatedColor,
                         contentDescription = "",
-                        modifier = Modifier.size(150.dp)
+                        modifier = Modifier
+                            .size(150.dp)
                             .offset(
-                            y = color.dp
-                        )
+                                y = position.dp
+                            )
                     )
                 }
             }
