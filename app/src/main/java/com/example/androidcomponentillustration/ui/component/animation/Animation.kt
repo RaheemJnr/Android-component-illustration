@@ -30,7 +30,7 @@ fun Animation() {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
-                modifier = Modifier
+                modifier = Modifier.padding(contentPadding)
             ) {
                 val infiniteTransition = rememberInfiniteTransition()
                 //
@@ -53,12 +53,10 @@ fun Animation() {
                     Icon(
                         Icons.Default.Favorite,
                         tint = animatedColor,
-                        contentDescription = "",
+                        contentDescription = "Heart Icon",
                         modifier = Modifier
-                            .size(150.dp)
-                            .offset(
-                                y = position.dp
-                            )
+                            .size(50.dp)
+                            .offset(y = position.dp)
                     )
                 }
             }
