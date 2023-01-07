@@ -49,16 +49,15 @@ fun Animation() {
                     animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
                 )
 
-                Box(Modifier.fillMaxSize()) {
-                    Icon(
-                        Icons.Default.Favorite,
-                        tint = animatedColor,
-                        contentDescription = "Heart Icon",
-                        modifier = Modifier
-                            .size(50.dp)
-                            .offset(y = position.dp)
-                    )
-                }
+                Icon(
+                    Icons.Default.Favorite,
+                    tint = animatedColor,
+                    contentDescription = "Heart Icon",
+                    modifier = Modifier
+                        .size(50.dp)
+                        .offset(y = position.dp)
+                )
+
             }
         }
 
