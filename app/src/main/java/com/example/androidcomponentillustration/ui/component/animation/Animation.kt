@@ -27,12 +27,17 @@ fun Animation() {
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center,
-                modifier = Modifier.padding(horizontal = 8.dp)
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp)
             ) {
                 val infiniteTransition = rememberInfiniteTransition()
-                //Bouncing animation using Multi State infinite transition
+                // Vertically Bouncing animation using Multi State infinite transition
                 BouncingAnimation(infiniteTransition)
+                Spacer(modifier = Modifier.width(8.dp))
+                //horizontally Bounding
+                HorizontalBouncingIcon(infiniteTransition)
 
 
             }
@@ -40,6 +45,41 @@ fun Animation() {
         }
 
     }
+}
+
+@Composable
+private fun HorizontalBouncingIcon(infiniteTransition: InfiniteTransition) {
+    val startColor = Color.Green
+    val endColor = Color.Black
+
+    val animatedColor by infiniteTransition.animateColor(
+        initialValue = startColor,
+        targetValue = endColor,
+        animationSpec = infiniteRepeatable(
+            tween(800, easing = FastOutLinearInEasing),
+            RepeatMode.Reverse,
+        )
+    )
+    val position by infiniteTransition.animateFloat(
+        initialValue = -60f,
+        targetValue = 60f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                800,
+                easing = FastOutLinearInEasing
+            ),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
+
+    Icon(
+        imageVector = Icons.Default.Favorite,
+        contentDescription = "",
+        tint = animatedColor,
+        modifier = Modifier
+            .size(50.dp)
+            .offset(x = position.dp)
+    )
 }
 
 @Composable
@@ -51,12 +91,15 @@ private fun BouncingAnimation(infiniteTransition: InfiniteTransition) {
     val animatedColor by infiniteTransition.animateColor(
         initialValue = startColor,
         targetValue = endColor,
-        animationSpec = infiniteRepeatable(tween(1000), RepeatMode.Reverse)
+        animationSpec = infiniteRepeatable(
+            tween(800, easing = FastOutLinearInEasing),
+            RepeatMode.Reverse,
+        )
     )
 
     val position by infiniteTransition.animateFloat(
-        initialValue = -80f,
-        targetValue = 80f,
+        initialValue = -50f,
+        targetValue = 50f,
         animationSpec = infiniteRepeatable(tween(1000), RepeatMode.Reverse)
     )
 
