@@ -21,45 +21,51 @@ fun Animation() {
         modifier = Modifier
     ) { contentPadding ->
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(contentPadding)
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier.padding(contentPadding)
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.padding(horizontal = 8.dp)
             ) {
                 val infiniteTransition = rememberInfiniteTransition()
-                //
-                val startColor = Color.Green
-                val endColor = Color.Yellow
+                //Bouncing animation using Multi State infinite transition
+                BouncingAnimation(infiniteTransition)
 
-                val animatedColor by infiniteTransition.animateColor(
-                    initialValue = startColor,
-                    targetValue = endColor,
-                    animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
-                )
-
-                val position by infiniteTransition.animateFloat(
-                    initialValue = -80f,
-                    targetValue = 80f,
-                    animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
-                )
-
-                Icon(
-                    Icons.Default.Favorite,
-                    tint = animatedColor,
-                    contentDescription = "Heart Icon",
-                    modifier = Modifier
-                        .size(50.dp)
-                        .offset(y = position.dp)
-                )
 
             }
+
         }
 
     }
+}
+
+@Composable
+private fun BouncingAnimation(infiniteTransition: InfiniteTransition) {
+    // start and end color for icon
+    val startColor = Color.Green
+    val endColor = Color.Black
+
+    val animatedColor by infiniteTransition.animateColor(
+        initialValue = startColor,
+        targetValue = endColor,
+        animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
+    )
+
+    val position by infiniteTransition.animateFloat(
+        initialValue = -80f,
+        targetValue = 80f,
+        animationSpec = infiniteRepeatable(tween(800), RepeatMode.Restart)
+    )
+
+    Icon(
+        Icons.Default.Favorite,
+        tint = animatedColor,
+        contentDescription = "Heart Icon",
+        modifier = Modifier
+            .size(50.dp)
+            .offset(y = position.dp)
+    )
 }
