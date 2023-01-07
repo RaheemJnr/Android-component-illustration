@@ -51,13 +51,13 @@ private fun BouncingAnimation(infiniteTransition: InfiniteTransition) {
     val animatedColor by infiniteTransition.animateColor(
         initialValue = startColor,
         targetValue = endColor,
-        animationSpec = infiniteRepeatable(tween(800), RepeatMode.Reverse)
+        animationSpec = infiniteRepeatable(tween(1000), RepeatMode.Reverse)
     )
 
     val position by infiniteTransition.animateFloat(
         initialValue = -80f,
         targetValue = 80f,
-        animationSpec = infiniteRepeatable(tween(800), RepeatMode.Restart)
+        animationSpec = infiniteRepeatable(tween(1000), RepeatMode.Reverse)
     )
 
     Icon(
