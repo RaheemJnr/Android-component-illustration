@@ -38,13 +38,32 @@ fun Animation() {
                 Spacer(modifier = Modifier.width(8.dp))
                 //horizontally Bounding
                 HorizontalBouncingIcon(infiniteTransition)
-
-
+                Spacer(modifier = Modifier.width(8.dp))
+                //pulsating icon
+                PulsatingHeartIcon(infiniteTransition)
             }
 
         }
 
     }
+}
+
+@Composable
+private fun PulsatingHeartIcon(infiniteTransition: InfiniteTransition) {
+    val floatAnim by infiniteTransition.animateFloat(
+        initialValue = 10f,
+        targetValue = 60f,
+        animationSpec = infiniteRepeatable(tween(1200), RepeatMode.Reverse)
+    )
+    Icon(
+        imageVector = Icons.Default.Favorite,
+        contentDescription = "",
+        modifier = Modifier
+            .size(floatAnim.dp)
+            .offset(
+                x = 10.dp, y = 10.dp
+            )
+    )
 }
 
 @Composable
