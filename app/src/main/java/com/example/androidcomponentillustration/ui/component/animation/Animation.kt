@@ -47,7 +47,7 @@ fun Animation() {
                 ) {
                     val infiniteTransition = rememberInfiniteTransition()
                     // Vertically Bouncing animation using Multi State infinite transition
-                    BouncingAnimation(infiniteTransition)
+                    VerticalBouncingAnimation(infiniteTransition)
                     Spacer(modifier = Modifier.width(8.dp))
                     //horizontally Bounding heart icon
                     HorizontalBouncingIcon(infiniteTransition)
@@ -117,7 +117,7 @@ private fun HorizontalBouncingIcon(infiniteTransition: InfiniteTransition) {
 }
 
 @Composable
-private fun BouncingAnimation(infiniteTransition: InfiniteTransition) {
+private fun VerticalBouncingAnimation(infiniteTransition: InfiniteTransition) {
     // start and end color for icon
     val startColor = Color.Green
     val endColor = Color.Black
