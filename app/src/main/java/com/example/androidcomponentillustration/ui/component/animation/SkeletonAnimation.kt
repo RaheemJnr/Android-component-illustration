@@ -49,14 +49,14 @@ fun Skeleton(
 
             val animateColor = remember { Animatable(Color.LightGray) }
 
-            val animationTogqle = remember { mutableStateOf(false) }
-            if (animationTogqle.value) {
+            val animationToggle = remember { mutableStateOf(false) }
+            if (animationToggle.value) {
                 LaunchedEffect(key1 = null) {
                     animateColor.animateTo(
                         targetValue = Color.Gray,
                         animationSpec = tween(400)
                     )
-                    animationTogqle.value = false
+                    animationToggle.value = false
                 }
             } else {
                 LaunchedEffect(key1 = null) {
@@ -64,7 +64,7 @@ fun Skeleton(
                         targetValue = Color.LightGray,
                         animationSpec = tween(400)
                     )
-                    animationTogqle.value = false
+                    animationToggle.value = false
                 }
             }
             Box(
