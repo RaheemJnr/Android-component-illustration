@@ -28,7 +28,6 @@ fun Animation() {
                 .fillMaxSize()
                 .padding(contentPadding)
         ) {
-
             Column(
                 Modifier.fillMaxWidth()
             ) {
