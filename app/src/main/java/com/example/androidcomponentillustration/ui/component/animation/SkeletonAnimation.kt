@@ -28,6 +28,7 @@ fun Skeleton(
     defaultView: (@Composable () -> Unit)? = null,
 
 ) {
+    //default size for Ui component
     val defaultSize = remember { mutableStateOf(IntSize.Zero) }
 
     Box(
@@ -39,14 +40,19 @@ fun Skeleton(
             },
         contentAlignment = Alignment.Center
     ) {
+        //the main view we want to display after animation or expected response from server
         contentView()
 
+
         if (isLoading) {
+
+            //if the UI state is still loading; we will display our loading skeleton animation
             defaultView?.let { view ->
                 view()
             }
 
 
+            //color for the
             val animateColor = remember { Animatable(Color.LightGray) }
 
             val animationToggle = remember { mutableStateOf(false) }
