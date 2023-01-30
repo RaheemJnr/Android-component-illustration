@@ -37,7 +37,14 @@ fun AnimationScreen() {
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp)
                 ) {
-                  HorizontalAndVerticalAnimation()
+                    Spacer(modifier = Modifier.height(8.dp))
+                    //bouncing and pulsating animation
+                    HorizontalAndVerticalAnimation()
+                    Spacer(modifier = Modifier.height(12.dp))
+                    //skeleton animation
+
+                    SkeletonShimmerAnimation()
+
                 }
             }
 

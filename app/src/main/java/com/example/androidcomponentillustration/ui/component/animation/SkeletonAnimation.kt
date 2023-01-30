@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.IntSize
 
 
 @Composable
-fun Skeleton(
+fun SkeletonShimmerAnimation(
     modifier: Modifier = Modifier,
     isLoading: Boolean = false,
     contentView: @Composable () -> Unit = {},
