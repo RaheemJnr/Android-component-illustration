@@ -18,52 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
-@Composable
-fun Animation() {
-    Scaffold(
-        modifier = Modifier
-    ) { contentPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(contentPadding)
-        ) {
-            Column(
-                Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = "Infinite Transition",
-                    textAlign = TextAlign.Center,
-                    fontSize = 22.sp,
-                    modifier = Modifier.padding(start = 100.dp)
-                )
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 8.dp)
-                ) {
-                    val infiniteTransition = rememberInfiniteTransition()
-                    // Vertically Bouncing animation using Multi State infinite transition
-                    VerticalBouncingAnimation(infiniteTransition)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    //horizontally Bounding heart icon
-                    HorizontalBouncingIcon(infiniteTransition)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    //pulsating icon
-                    PulsatingHeartIcon(infiniteTransition)
-                }
-            }
 
-
-        }
-
-    }
-}
 
 @Composable
-private fun PulsatingHeartIcon(infiniteTransition: InfiniteTransition) {
+fun PulsatingHeartIcon(infiniteTransition: InfiniteTransition) {
     val floatAnim by infiniteTransition.animateFloat(
         initialValue = 10f,
         targetValue = 60f,
@@ -81,7 +39,7 @@ private fun PulsatingHeartIcon(infiniteTransition: InfiniteTransition) {
 }
 
 @Composable
-private fun HorizontalBouncingIcon(infiniteTransition: InfiniteTransition) {
+fun HorizontalBouncingIcon(infiniteTransition: InfiniteTransition) {
     val startColor = Color.Green
     val endColor = Color.Black
 
@@ -116,7 +74,7 @@ private fun HorizontalBouncingIcon(infiniteTransition: InfiniteTransition) {
 }
 
 @Composable
-private fun VerticalBouncingAnimation(infiniteTransition: InfiniteTransition) {
+fun VerticalBouncingAnimation(infiniteTransition: InfiniteTransition) {
     // start and end color for icon
     val startColor = Color.Green
     val endColor = Color.Black
