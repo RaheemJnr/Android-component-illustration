@@ -75,7 +75,9 @@ fun Skeleton(
                     animationToggle.value = true
                 }
             }
-            // default Skeleton Box that wil be animated
+            /**
+             *  default Skeleton Box that will be animated
+             *  */
             Box(
                 modifier = modifier
                     .background(animateColor.value)
