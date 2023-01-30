@@ -2,22 +2,32 @@ package com.example.androidcomponentillustration.ui.component.animation
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.*
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 
+@Composable
+fun HorizontalAndVerticalAnimation() {
+    val infiniteTransition = rememberInfiniteTransition()
+    // Vertically Bouncing animation using Multi State infinite transition
+    VerticalBouncingAnimation(infiniteTransition)
+    Spacer(modifier = Modifier.width(8.dp))
+    //horizontally Bounding heart icon
+    HorizontalBouncingIcon(infiniteTransition)
+    Spacer(modifier = Modifier.width(8.dp))
+    //pulsating icon
+    PulsatingHeartIcon(infiniteTransition)
+}
 
 
 @Composable

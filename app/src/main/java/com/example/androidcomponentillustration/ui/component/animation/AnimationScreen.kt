@@ -1,6 +1,5 @@
 package com.example.androidcomponentillustration.ui.component.animation
 
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -38,15 +37,7 @@ fun AnimationScreen() {
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp)
                 ) {
-                    val infiniteTransition = rememberInfiniteTransition()
-                    // Vertically Bouncing animation using Multi State infinite transition
-                    VerticalBouncingAnimation(infiniteTransition)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    //horizontally Bounding heart icon
-                    HorizontalBouncingIcon(infiniteTransition)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    //pulsating icon
-                    PulsatingHeartIcon(infiniteTransition)
+                  HorizontalAndVerticalAnimation()
                 }
             }
 
