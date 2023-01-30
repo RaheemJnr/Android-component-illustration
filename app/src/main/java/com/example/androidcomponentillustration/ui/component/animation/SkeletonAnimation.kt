@@ -52,10 +52,12 @@ fun Skeleton(
             }
 
 
-            //color for the
+            //animated color for the UI skeleton
             val animateColor = remember { Animatable(Color.LightGray) }
 
+
             val animationToggle = remember { mutableStateOf(false) }
+
             if (animationToggle.value) {
                 LaunchedEffect(key1 = null) {
                     animateColor.animateTo(
@@ -70,9 +72,10 @@ fun Skeleton(
                         targetValue = Color.LightGray,
                         animationSpec = tween(400)
                     )
-                    animationToggle.value = false
+                    animationToggle.value = true
                 }
             }
+            // default Skeleton Box
             Box(
                 modifier = modifier
                     .background(animateColor.value)
