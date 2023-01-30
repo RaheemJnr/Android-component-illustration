@@ -27,7 +27,7 @@ fun Skeleton(
     contentView: @Composable () -> Unit = {},
     defaultView: (@Composable () -> Unit)? = null,
 
-) {
+    ) {
     //default size for Ui component
     val defaultSize = remember { mutableStateOf(IntSize.Zero) }
 
@@ -76,7 +76,9 @@ fun Skeleton(
                 }
             }
             /**
-             *  default Skeleton Box that will be animated
+             *  default Skeleton Box that will be animated and we will applied
+             *  the changes calculated from the [defaultSize] value
+             *  calculated in the [onSizeChanged] modifier above
              *  */
             Box(
                 modifier = modifier
