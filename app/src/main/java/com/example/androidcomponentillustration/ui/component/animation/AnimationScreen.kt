@@ -43,7 +43,7 @@ fun AnimationScreen() {
                     HorizontalAndVerticalAnimation()
                     Spacer(modifier = Modifier.height(12.dp))
                     //skeleton animation
-                    SkeletonExampleScreen()
+
 
                 }
             }
