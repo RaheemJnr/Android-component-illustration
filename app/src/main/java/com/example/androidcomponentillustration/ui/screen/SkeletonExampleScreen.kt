@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -65,7 +66,8 @@ fun ProfileView(
                         .padding(6.dp)
                 )
             },
-            shape = CircleShape
+            shape = CircleShape,
+            contentAlignment = Alignment.Center
         )
         Spacer(modifier = Modifier.height(6.dp))
         SkeletonShimmerAnimation(
@@ -75,7 +77,8 @@ fun ProfileView(
                     text = "Hi im new here"
                 )
             },
-            shape = RectangleShape
+            shape = RectangleShape,
+            contentAlignment = Alignment.BottomEnd
         )
 
     }

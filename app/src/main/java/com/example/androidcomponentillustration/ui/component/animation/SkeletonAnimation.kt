@@ -27,6 +27,7 @@ fun SkeletonShimmerAnimation(
     modifier: Modifier = Modifier,
     isLoading: Boolean = false,
     shape: Shape,
+    contentAlignment: Alignment,
     contentView: @Composable () -> Unit = {},
     defaultView: (@Composable () -> Unit)? = null,
 
@@ -39,10 +40,13 @@ fun SkeletonShimmerAnimation(
             .wrapContentSize()
             .clip(shape = shape)
             .onSizeChanged {
-                //
+                /**
+                by default the size of the size of the skeleton box is zero
+                but when recomposition happen and size change apply the change here
+                 */
                 defaultSize.value = it
             },
-        contentAlignment = Alignment.Center
+        contentAlignment = contentAlignment
     ) {
         //the main view we want to display after animation or expected response from server
         contentView()
@@ -57,14 +61,15 @@ fun SkeletonShimmerAnimation(
 
 
             //animated color for the UI skeleton
-            val animateColor = remember { Animatable(Color.White) }
+            val animatedColor = remember { Animatable(Color.White) }
 
-
+            //holds value for when to animating the color of the Skeleton box
             val animationToggle = remember { mutableStateOf(false) }
 
+            //if the value is true animate the color to light gray else back to white
             if (animationToggle.value) {
                 LaunchedEffect(key1 = null) {
-                    animateColor.animateTo(
+                    animatedColor.animateTo(
                         targetValue = Color.White,
                         animationSpec = tween(800, delayMillis = 50, easing = FastOutLinearInEasing)
                     )
@@ -72,7 +77,7 @@ fun SkeletonShimmerAnimation(
                 }
             } else {
                 LaunchedEffect(key1 = null) {
-                    animateColor.animateTo(
+                    animatedColor.animateTo(
                         targetValue = Color.LightGray,
                         animationSpec = tween(800, delayMillis = 50, easing = LinearOutSlowInEasing)
                     )
@@ -86,7 +91,7 @@ fun SkeletonShimmerAnimation(
              *  */
             Box(
                 modifier = modifier
-                    .background(animateColor.value)
+                    .background(animatedColor.value)
                     .then(
                         with(LocalDensity.current) {
                             Modifier.size(
