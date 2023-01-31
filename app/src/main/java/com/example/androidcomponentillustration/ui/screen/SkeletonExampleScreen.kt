@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
@@ -11,8 +12,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import com.example.androidcomponentillustration.ui.component.animation.SkeletonShimmerAnimation
 import kotlinx.coroutines.delay
@@ -51,13 +52,12 @@ fun ProfileView(
         SkeletonShimmerAnimation(
             isLoading = loading,
             contentView = {
-
                 Image(
                     imageVector = Icons.Default.Person,
                     contentDescription = "null",
                     modifier = Modifier
                         .size(50.dp)
-                        .clip(CircleShape)
+
                 )
 
 
@@ -67,21 +67,22 @@ fun ProfileView(
                     modifier = Modifier
                         .size(50.dp)
                         .background(Color.White)
-                        .clip(CircleShape)
+                        .padding(6.dp)
                 )
 
-            }
+            },
+            shape = CircleShape
         )
 
 
         SkeletonShimmerAnimation(
             isLoading = loading,
             contentView = {
-                Text(text = "Hi im new here")
+                Text(
+                    text = "Hi im new here"
+                )
             },
-            defaultView = {
-                Text(text = "              ")
-            }
+            shape = RectangleShape
         )
 
     }

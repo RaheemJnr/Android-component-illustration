@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntSize
@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.IntSize
 fun SkeletonShimmerAnimation(
     modifier: Modifier = Modifier,
     isLoading: Boolean = false,
+    shape: Shape,
     contentView: @Composable () -> Unit = {},
     defaultView: (@Composable () -> Unit)? = null,
 
@@ -34,8 +35,9 @@ fun SkeletonShimmerAnimation(
     Box(
         modifier = modifier
             .wrapContentSize()
-            .clip(shape = RectangleShape)
+            .clip(shape = shape)
             .onSizeChanged {
+                //
                 defaultSize.value = it
             },
         contentAlignment = Alignment.Center
@@ -53,7 +55,7 @@ fun SkeletonShimmerAnimation(
 
 
             //animated color for the UI skeleton
-            val animateColor = remember { Animatable(Color.LightGray) }
+            val animateColor = remember { Animatable(Color.White) }
 
 
             val animationToggle = remember { mutableStateOf(false) }
