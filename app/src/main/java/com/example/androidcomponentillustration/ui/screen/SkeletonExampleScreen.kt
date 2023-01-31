@@ -15,8 +15,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.androidcomponentillustration.ui.component.animation.SkeletonShimmerAnimation
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 
 @Composable
@@ -31,15 +29,15 @@ fun SkeletonExampleScreen(
 
     LaunchedEffect(key1 = null) {
         loading.value = true
-        val task = async(Dispatchers.IO) {
+
             delay(3000L)
-        }
-        task.await()
-        // loading.value = false
+
+         loading.value = false
     }
 
+
     ProfileView(loading = loading.value)
-    //  loading.value = false
+
 
 
 }
@@ -68,7 +66,7 @@ fun ProfileView(
                 Box(
                     modifier = Modifier
                         .size(50.dp)
-                        .background(Color.Blue)
+                        .background(Color.White)
                         .clip(CircleShape)
                 )
 
