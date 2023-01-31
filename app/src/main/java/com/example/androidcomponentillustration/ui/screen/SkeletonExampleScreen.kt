@@ -31,7 +31,7 @@ fun SkeletonExampleScreen(
     LaunchedEffect(key1 = null) {
         loading.value = true
 
-            delay(3000L)
+            delay(5000L)
 
          loading.value = false
     }

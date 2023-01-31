@@ -1,7 +1,6 @@
 package com.example.androidcomponentillustration.ui.component.animation
 
 import androidx.compose.animation.Animatable
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -63,16 +62,16 @@ fun SkeletonShimmerAnimation(
             if (animationToggle.value) {
                 LaunchedEffect(key1 = null) {
                     animateColor.animateTo(
-                        targetValue = Color.Gray,
-                        animationSpec = tween(400)
+                        targetValue = Color.Green,
+
                     )
                     animationToggle.value = false
                 }
             } else {
                 LaunchedEffect(key1 = null) {
                     animateColor.animateTo(
-                        targetValue = Color.LightGray,
-                        animationSpec = tween(400)
+                        targetValue = Color.Blue,
+
                     )
                     animationToggle.value = true
                 }
