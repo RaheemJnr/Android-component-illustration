@@ -21,7 +21,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 fun MainScreenNavigation(
     navController: NavHostController,
 ) {
-    // val mainViewModel = hiltViewModel<MainViewModel>()
 
     NavHost(navController, startDestination = MainScreen.ComponentList.route) {
         // component list
