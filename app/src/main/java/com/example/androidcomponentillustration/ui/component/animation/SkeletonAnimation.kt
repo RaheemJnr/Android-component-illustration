@@ -80,8 +80,8 @@ fun SkeletonShimmerAnimation(
                 }
             }
             /**
-             *  default Skeleton Box that will be animated and we will applied
-             *  the changes calculated from the [defaultSize] value
+             *  default Skeleton Box for each UI item that will be animated and we applied
+             *  the size changes from [defaultSize] value
              *  calculated in the [onSizeChanged] modifier above
              *  */
             Box(

@@ -55,10 +55,7 @@ fun ProfileView(
                     contentDescription = "null",
                     modifier = Modifier
                         .size(50.dp)
-
                 )
-
-
             },
             defaultView = {
                 Box(
@@ -67,7 +64,6 @@ fun ProfileView(
                         .background(Color.White)
                         .padding(6.dp)
                 )
-
             },
             shape = CircleShape
         )
