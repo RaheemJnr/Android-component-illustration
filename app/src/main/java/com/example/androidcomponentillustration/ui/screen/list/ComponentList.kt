@@ -18,7 +18,6 @@ import androidx.navigation.NavController
 import com.example.androidcomponentillustration.model.listItems
 import com.example.androidcomponentillustration.ui.component.ComponentItem
 import com.example.androidcomponentillustration.ui.component.StatusPageHeading
-import com.example.androidcomponentillustration.ui.screen.SkeletonExampleScreen
 
 @Composable
 fun ComponentListScreen(
@@ -81,7 +80,8 @@ fun ComponentListScreen(
                 }
             }
 
-            SkeletonExampleScreen()
+
+
 
         }
     }
